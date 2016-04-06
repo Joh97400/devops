@@ -1,0 +1,33 @@
+/* Réinitialison des marges */
+html, body {
+	margin: 0;
+	padding: 0;
+ }
+/* Paramétrage du corps de la page }*/
+body{
+	background-color: white;
+}
+
+/* Paramétrage des titres */
+h1{
+	color : #F505E5;
+}
+h3 {
+	color : #100F0F;
+}
+/* Paramétrage de la div blue */
+#blue{
+	margin-left: auto;
+	margin-right:auto;
+	width: 500px; /* largeur obligatoire pour être centré */
+	background-color : #19C9DD;
+}
+
+/* Paramétrage de la div yellow */
+#yellow{
+	margin-left: auto;
+	margin-right:auto;
+	width: 500px; /* largeur obligatoire pour être centré */
+	background-color : yellow;
+}
+
