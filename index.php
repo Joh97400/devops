@@ -29,7 +29,7 @@
 </script>
  <style type="text/css">
 	body{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;line-height:1.846;
-	color:#666666;background-color:<?php $couleur ="pink";echo $couleur;?>}
+	color:#666666;background-color:<?php $couleur ="white";echo $couleur;?>}
  </style>
   </head>
   <body>
@@ -56,7 +56,7 @@
     <div class="container">
 		<h1>DevOps</h1>
 		Votre version de logiciel est <?php echo $couleur;?>. </br>Timspirit © </br>
-		<input type="buton" onclick="toggle_div(this,'details');" value="Plus de détails..."/></br></br>
+		<input type="button" onclick="toggle_div(this,'details');" value="Plus de détails..."/></br></br>
 		<div id="details" style="display:none;">
 			Vous êtes connecté sur la machine de <?php echo gethostname();?>.
 		</div>
