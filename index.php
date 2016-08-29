@@ -1,54 +1,65 @@
-﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" >
-	<?php
-	// Declaration d'une variable version et maj
-	$version = 4.6;
-	$maj = 0;
-	// S'il n'y a pas de mise à jour alors on affiche qu'il s'agit de la dernière version
-	if ($maj == 0) { ?>
-		<!-- Déclaration des normes et des caracteristiques de la page-->
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<title> Bienvenue sur TimDevOps </title>
-			<link rel="stylesheet" media="screen" type="text/css" title="Design" href="style.css" />
-		</head>
-			<body>
-				<div id="blue">
-					<!-- Mise en place de deux div qui permettent de centrer la zone au milieu de la page, banniere et centre (voir style.css)-->
-					<!-- Titre generale -->
-					<h1>Bienvenue sur TimDevOps</h1></br>
-					<h3>Votre version de logiciel est la <?php echo $version; ?>.  Il s'agit de la dernière version.</h3>
-					<h3>Vous êtes connecté sur la machine de <?php echo gethostname(); ?>.</h3>						
-				</div>
-			</body>
-		<?php 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <title>Bienvenue sur TimDevOps</title>
+    <!-- Bootstrap core CSS -->
+    <link href="style.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <!-- <link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
+    <!-- Custom styles for this template -->
+    <link href="style.css" rel="stylesheet">
+	<script type="text/javascript">
+	function toggle_div(bouton, id) { // On déclare la fonction toggle_div qui prend en param le bouton et un id
+	  var div = document.getElementById(id); // On récupère le div ciblé grâce à l'id
+	  if(div.style.display=="none") { // Si le div est masqué...
+		div.style.display = "block"; // ... on l'affiche...
+		bouton.value="Masquer les détails"; // on change la valeur du bouton
+	  } else { // S'il est visible...
+		div.style.display = "none"; // ... on le masque...
+		bouton.value ="Plus de détails...";// on change la valeur du bouton
+	  }
 	}
-	// Sinon cela veut dire qu'il y a un upgrade, alors on affiche un lien afin de faire la mise à jour
-	else {?>
-		<!-- Declaration des normes et des caractÃ©ristiques de la page -->
-		<head>
-			<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-			<title> Bienvenue sur TimDevOps </title>
-			<link rel="stylesheet" media="screen" type="text/css" title="Design" href="style.css" />
-		</head>
-		<body>
-			<div id="blue">
-				<!-- Titre generale -->
-				<h1>Bienvenue sur TimDevOps </h1></br>
-				<!-- Affichage de la version avec la variable $version -->
-				<h3>Votre version de logiciel est la <?php echo $version; ?>.</h3>
-				<!-- Mise en place d'un formulaire afin de récupérer la valeur maj-->
-				<form id="test" action="maj.php" method  ="POST">
-					<!-- On cache un lien contenant la variable pour qu'elle soit invisible pour l'utilisateur. On pourra la récupérer sur la page maj.php 
-					Nous pouvons donc recuperer grace au formulaire les variables dans la page maj.php -->
-					<input type="hidden" name="maj" value="<?php echo $maj; ?>"/>				
-				</form>
-				<!-- Insertion d'un lien permettant de cliquer sur la maj -->
-				<a href='#' onclick='document.getElementById("test").submit()'> <img src="maj.jpg" alt="simspon" width="200" height="200" border="0" /></a>
-				<!-- Ligne qui permet de voir le nom d'utlisateur de la machine -->
-				<h3>Vous êtes connecté sur la machine de <?php echo gethostname(); ?>.</h3>
-			</div>
-		</body>
-		<?php	
-	}?>
+</script>
+ <style type="text/css">
+	body{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;line-height:1.846;
+	color:#666666;background-color:<?php $couleur ="white";echo $couleur;?>}
+ </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Timspirit</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <!--<li class="active"><a href="#">Logiciel</a></li>
+           <li><a href="about.php">About</a></li>
+            <li><a href="contact.php">Contact</a></li> -->
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="container">
+		<h1>DevOps</h1>
+		Votre version de logiciel est <?php echo $couleur;?>. </br>Timspirit © </br>
+		<input type="button" onclick="toggle_div(this,'details');" value="Plus de détails..."/></br></br>
+		<div id="details" style="display:none;">
+			Vous êtes connecté sur la machine de <?php echo gethostname();?>.
+		</div>
+    </div>
+  </body>
 </html>
