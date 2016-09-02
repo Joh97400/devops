@@ -1,3 +1,2 @@
 # devops
-Création d'une application web permettant de savoir si un logiciel est à jour.
-S'il est à jour il s'agit de la dernière version sinon il faut faire un upgrade.
+Code qui affiche une interface web simple. Le but étant de suivre des modifications de la machine de DEV jusqu'à la machine de PROD
